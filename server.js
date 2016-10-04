@@ -10,7 +10,7 @@ var articleOne =
 {
     title: "Article One | Sanjay Mishra ",
     heading:"Article One",
-    date: "Oct 10,  2016",
+    date: "Oct 2,  2016",
     content: `<p>
                 This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.
             </p>
