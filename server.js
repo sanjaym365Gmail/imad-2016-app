@@ -5,23 +5,41 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleOne =
-{
-    title: "Article One | Sanjay Mishra ",
-    heading:"Article One",
-    date: "Oct 2,  2016",
-    content: `<p>
-                This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.
-            </p>
-            <p>
-                This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.
-            </p>
-            <p>
-                This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.
-            </p>
-            `,
-    };
+var articles = {
+    'article-one': {
+        title: "Article One | Sanjay Mishra ",
+        heading:"Article One",
+        date: "Oct 2,  2016",
+        content: `<p>
+                    This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.
+                </p>
+                <p>
+                    This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.
+                </p>
+                <p>
+                    This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.This is Third Para.
+                </p>
+                `,
+        },
+    'article-two' : {      
+        title: "Article Two | Sanjay Mishra ",
+        heading:"Article Two",
+        date: "Oct 3,  2016",
+        content: `<p>
+                    This is my second article. 
+                </p>
+                `,
+  },
+    'article-three' : {
+        title: "Article Three | Sanjay Mishra ",
+        heading:"Article Three",
+        date: "Oct 4,  2016",
+        content: `<p>
+                    This is my Third article. 
+                </p>
+                `,
+    },
+};
 
 function createTemplate (data)     {
 var title = data.title;
@@ -56,14 +74,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req,res) {
-   res.send(createTemplate(articleOne))
-});
-app.get('/article-two', function (req,res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html')); 
-});
-app.get('/article-three', function (req,res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+// From Express framework this facility of createing a variable works. :articleName
+// whatever comes after / will be assigned to articleName variable and can be used in that function
+app.get('/:articleName', function (req,res) {
+    var thisArticleName = req.params.articleName
+   res.send(createTemplate(articles[thisArticleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
