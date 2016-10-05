@@ -1,18 +1,31 @@
 console.log('Loaded!');
 
-var counter = 0;
+
 
 var button = document.getElementById("counter");
 
 button.onclick = function() {
-  // Make a request to the counter end point
-  
+  // create a request Object
+  var request = new XMLHttpRequest();
   // Capture the response in the variable
+  request.onReadyStateChange = function(){
+    if (request.readyState === XMLHttpRequest.DONE)  {
+        //Take some action
+        if (request.status === 200){
+            // Get the counter value from the counter page
+            var counter = request.responseText; 
+            // Display the value. Render it in the correct span
+            var spanToDisplay = document.getElementById("count");
+            spanToDisplay.innerHTML = counter.toString();
+        }
+    }
+  };
   
-  // Display the value. Render it in the correct span
-  counter = counter + 1;
-  var spanToDisplay = document.getElementById("count");
-  spanToDisplay.innerHTML = counter
+  // Make a request to the counter end point
+  reqeust.open("GET", "http://sanjaym365gmail.imad.hasura-app.io/counter");
+  request.send(null);
+  
+  
 };
 
 
