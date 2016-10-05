@@ -24,8 +24,19 @@ button.onclick = function() {
   // Make a request to the counter end point
   request.open('GET', 'http://sanjaym365gmail.imad.hasura-app.io/counter',true);
   request.send(null);
-  
-  
+ };
+
+// add name and display all names added until now
+var nameInput = document.getElementById('name');
+var nameValue = nameInput.name;
+var submitBtn = document.getElementById('submit_btn');
+
+submitBtn.onclick = function(){
+  var names = ['name1', 'name2', 'name3'];
+  var list = '';
+  for (var i=0; i < names.length; i++){
+      list += '<li>' + names[i] + '</li>';
+  }
+  var nameList = document.getElementById('nameList');
+  nameList.innerHTML = list;
 };
-
-
