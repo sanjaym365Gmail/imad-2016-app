@@ -28,7 +28,7 @@ button.onclick = function() {
 
 // add name and display all names added until now
 var nameInput = document.getElementById('name');
-var nameValue = nameInput.name;
+var nameValue = nameInput.value;
 var submitBtn = document.getElementById('submit_btn');
 
 submitBtn.onclick = function(){
