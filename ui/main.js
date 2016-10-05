@@ -8,7 +8,7 @@ button.onclick = function() {
   // create a request Object
   var request = new XMLHttpRequest();
   // Capture the response in the variable
-  request.onReadyStateChange = function(){
+  request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE)  {
         //Take some action
         if (request.status === 200){
@@ -23,7 +23,7 @@ button.onclick = function() {
   
   // Make a request to the counter end point
   request.open('GET', 'http://sanjaym365gmail.imad.hasura-app.io/counter',true);
-  request.send();
+  request.send(null);
   
   
 };
