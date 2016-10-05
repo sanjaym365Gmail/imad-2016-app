@@ -81,6 +81,15 @@ app.get('/counter', function (req,res) {
    counter = counter +1;
    res.send(counter.toString());
 });
+
+var names =[];
+app.get('/submit-name', function(req,res) { // send the names as the query parameter
+   //Get the name from the request
+   var name = req.query.name;
+   names.push(name);
+   res.send(JSON.stringify(names));
+});
+
 // From Express framework this facility of createing a variable works. :articleName
 // whatever comes after / will be assigned to articleName variable and can be used in that function
 app.get('/:articleName', function (req,res) {
@@ -100,7 +109,6 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var names =[];
 app.get('/submit-name/:name', function(req,res) {
    //Get the name from the request
    var name = req.params.name;
