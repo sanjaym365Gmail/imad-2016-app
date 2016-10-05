@@ -8,6 +8,10 @@ element.innerHTML = 'New Data';
 // Move the madi.png picture
 var img = document.getElementById("madi");
 
+function moveRight(){
+    img.style,marginLeft = '100px';
+}
 img.onclick = function(){
-    img.style.marginLeft = '100px';
+    var interval = setinterval(moveRight, 100)
+    // img.style.marginLeft = '100px';
 };
