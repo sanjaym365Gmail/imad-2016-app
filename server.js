@@ -13,7 +13,7 @@ var articles = {
         content: `<p>
                     This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.This is first Para.
                 </p>
-                <p>
+                <p class="BoldThis">
                     This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.This is Second Para.
                 </p>
                 <p>
