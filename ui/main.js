@@ -27,8 +27,7 @@ button.onclick = function() {
  };
 
 // add name and display all names added until now
-var nameInput = document.getElementById('name');
-var nameValue = nameInput.value;
+
 var submitBtn = document.getElementById('submit_btn');
 
 submitBtn.onclick = function(){
@@ -56,6 +55,8 @@ submitBtn.onclick = function(){
     }
      
   //Make a request
+  var nameInput = document.getElementById('name');
+  var nameValue = nameInput.value;
   request.open('GET', 'http://sanjaym365gmail.imad.hasura-app.io/submit-name?name='+ nameValue,true);
   request.send(null);
  
