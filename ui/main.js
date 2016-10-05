@@ -7,9 +7,9 @@ element.innerHTML = 'New Data';
 
 // Move the madi.png picture
 var img = document.getElementById("madi");
-
+var marginLeft = 20;
 function moveRight(){
-    var marginLeft = marginLeft + 10;
+    marginLeft = marginLeft + 10;
     img.style.marginLeft = marginLeft +'px';
 }
 img.onclick = function(){
