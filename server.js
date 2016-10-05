@@ -84,7 +84,7 @@ app.get('/counter', function (req,res) {
 // From Express framework this facility of createing a variable works. :articleName
 // whatever comes after / will be assigned to articleName variable and can be used in that function
 app.get('/:articleName', function (req,res) {
-    var thisArticleName = req.params.articleName
+    var thisArticleName = req.params.articleName;
    res.send(createTemplate(articles[thisArticleName]));
 });
 
