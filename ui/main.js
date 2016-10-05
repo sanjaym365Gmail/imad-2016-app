@@ -23,7 +23,7 @@ button.onclick = function() {
   
   // Make a request to the counter end point
   request.open("GET", "http://sanjaym365gmail.imad.hasura-app.io/counter",true);
-  request.send(null);
+  request.send();
   
   
 };
